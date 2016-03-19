@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="AnimatedBackgroundWPF.AnimatedBackgroundWithoutOpacityMask"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Storyboard x:Key="MainStoryboard" x:Name="MainStoryboard">
+            <DoubleAnimationUsingKeyFrames AutoReverse="True" BeginTime="00:00:00" RepeatBehavior="Forever"  Storyboard.TargetName="topCurve" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)">
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="70" KeyTime="00:00:00"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="70" KeyTime="00:00:10"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:20"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames AutoReverse="True" BeginTime="00:00:00" RepeatBehavior="Forever" Storyboard.TargetName="bottomCurve" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)">
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-50" KeyTime="00:00:00"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:20"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames AutoReverse="True" BeginTime="00:00:00" RepeatBehavior="Forever" Storyboard.TargetName="topCurve" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)">
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:0"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-150" KeyTime="00:00:10"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:20"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames AutoReverse="True" BeginTime="00:00:00" RepeatBehavior="Forever" Storyboard.TargetName="topSlash" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)">
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="-10" KeyTime="00:00:10"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:20"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames AutoReverse="True" BeginTime="00:00:00" RepeatBehavior="Forever" Storyboard.TargetName="bottomSlash" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)">
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="10" KeyTime="00:00:10"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:20"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <!-- Animate topCurve Opacity -->
+            <DoubleAnimationUsingKeyFrames AutoReverse="True" BeginTime="00:00:00" RepeatBehavior="Forever"  Storyboard.TargetName="topCurve" Storyboard.TargetProperty="Opacity">
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.05" KeyTime="00:00:00"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.1" KeyTime="00:00:10"/>
+                <SplineDoubleKeyFrame d:KeyEase="Linear;Linear;0.5;0.5;0.5;0.5" KeySpline="0.5,0.5,0.5,0.5" Value="0.05" KeyTime="00:00:20"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <TranslateTransform X="-0.5" Y="-0.5"/>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        <SkewTransform AngleX="0" AngleY="0"/>
+                        <RotateTransform Angle="90.495202139271512" CenterX="0" CenterY="0"/>
+                        <TranslateTransform X="0.5" Y="0.5"/>
+                        <TranslateTransform X="5.5511151231257827E-17" Y="5.5511151231257827E-17"/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop Color="sc#1, 0.0217442848, 0.0835272, 0.6380811" Offset="0.10999281092739174"/>
+                        <GradientStop Color="sc#1, 0.06484591, 0.340538949, 0.9888191" Offset="1"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Path Fill="#FFFFFFFF" StrokeThickness="20" Width="Auto" Height="57.5" Opacity="0.75" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.ColumnSpan="1" MinWidth="0" Margin="-12,112.5,-17,0" d:IsLocked="True" x:Name="topSlash" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <TranslateTransform X="-0.5" Y="-0.5"/>
+                            <ScaleTransform ScaleX="1.2435054172657669" ScaleY="1.2435054172657669"/>
+                            <SkewTransform AngleX="0" AngleY="0"/>
+                            <RotateTransform Angle="477.95477847268165" CenterX="0" CenterY="0"/>
+                            <TranslateTransform X="0.5" Y="0.5"/>
+                            <TranslateTransform X="-0.0019498249295469782" Y="0.12173975574234734"/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Color="sc#1, 1, 1, 1" Offset="0"/>
+                            <GradientStop Color="sc#0, 0, 0, 0" Offset="0.45794392523364624"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Path.Stroke>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform X="0" Y="0"/>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="16,113">
+                                <LineSegment Point="635,127"/>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Fill="#FFFFFFFF" StrokeThickness="20" Width="Auto" Height="57.5" Opacity="0.750461667538832" VerticalAlignment="Bottom" Grid.ColumnSpan="1" MinWidth="0" Margin="-12,0,-17,175" d:IsLocked="True" x:Name="bottomSlash" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <TranslateTransform X="-0.5" Y="-0.5"/>
+                            <ScaleTransform ScaleX="1.2435054172657669" ScaleY="1.2435054172657669"/>
+                            <SkewTransform AngleX="0" AngleY="0"/>
+                            <RotateTransform Angle="477.95477847268165" CenterX="0" CenterY="0"/>
+                            <TranslateTransform X="0.5" Y="0.5"/>
+                            <TranslateTransform X="-0.0019498249295469782" Y="0.12173975574234734"/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Color="sc#1, 1, 1, 1" Offset="0"/>
+                            <GradientStop Color="sc#0, 0, 0, 0" Offset="0.45794392523364624"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Path.Stroke>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform X="0" Y="0"/>
+                    <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0.13471421727346922"/>
+                    <TranslateTransform X="0" Y="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="16,113">
+                                <LineSegment Point="635,127"/>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Fill="{x:Null}" StrokeThickness="30" Width="Auto" Height="91.743971824646" Opacity="0.73777572111677647" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.ColumnSpan="1" MinWidth="0" Margin="-143,0,-30.9999999999998,115.256025791168" d:LastTangent="73,-126" d:IsLocked="True" x:Name="bottomCurve" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <TranslateTransform X="-0.5" Y="-0.5"/>
+                            <ScaleTransform ScaleX="1.6634615772107915" ScaleY="1.6634615772107915"/>
+                            <SkewTransform AngleX="0" AngleY="0"/>
+                            <RotateTransform Angle="596.72979310267885" CenterX="0" CenterY="0"/>
+                            <TranslateTransform X="0.5" Y="0.5"/>
+                            <TranslateTransform X="0.44519956050177056" Y="-0.34422471286323414"/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Color="sc#1, 1, 1, 1" Offset="0.020369039060629125"/>
+                            <GradientStop Color="sc#0, 0, 0, 0" Offset="0.41576803259046397"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Path.Stroke>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform X="0" Y="0"/>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="-66.0000002324367,350.000030123091">
+                                <BezierSegment Point1="-24.0000002324363,358.000030123091" Point2="669.999996493025,366.00001503891" Point3="728,283.000021457677"/>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Fill="{x:Null}" StrokeThickness="20" Width="Auto" Height="110.32835483551" VerticalAlignment="Top" Grid.ColumnSpan="1" MinWidth="0" Margin="-179.092762838862,63.7289762446784,-211.970287431218,0" x:Name="topCurve" RenderTransformOrigin="0.518255578093307,0.533062619784211" Stretch="Fill" d:IsLocked="True">
+            <Path.Stroke>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <TranslateTransform X="-0.5" Y="-0.5"/>
+                            <ScaleTransform ScaleX="1.4312933278681035" ScaleY="1.4312933278681035"/>
+                            <SkewTransform AngleX="0" AngleY="0"/>
+                            <RotateTransform Angle="308.88157753904562" CenterX="0" CenterY="0"/>
+                            <TranslateTransform X="0.5" Y="0.5"/>
+                            <TranslateTransform X="0.0031035929487749432" Y="-0.78326644096635478"/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="sc#0, 0, 0, 0" Offset="0.18907260963335842"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Path.Stroke>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform X="0" Y="0"/>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="179.53644306913355"/>
+                    <TranslateTransform X="0" Y="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="-129,144.999996311621">
+                                <BezierSegment Point1="-93.8553009180891,141.762984554077" Point2="-43.6799199672836,85.5647453804079" Point3="37.5043519185653,85.2370074424914"/>
+                                <PolyBezierSegment Points="142.02698,84.815053 456.50435,156.23702 531.50435,164.23702 728.27891,201.89182 861.28632,144.09986 882.53445,115.65478 "/>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Grid>
+</UserControl>
